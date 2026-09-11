@@ -19,4 +19,4 @@ RUN useradd --create-home app && mkdir -p /app/data/raw /app/data/clean && chown
 USER app
 ENV STATIC_DIR=/app/frontend/out
 EXPOSE 10000
-CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-10000}"]
+CMD ["python", "-m", "scripts.start"]
