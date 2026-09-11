@@ -1,0 +1,16 @@
+/* Operational labels remain readable; small type is reserved for metadata. */
+.table-scroll{position:relative}
+.bar-label,.bar-label strong,.market,.rank-row,.rank-rate strong,.retry-heading h3,
+.text-button,.payment-id,table,.insight p,.filter-bar select,.search-field input{font-size:14px}
+.metric-foot,.change,.quiet-label,.chart-legend,.chart-total span,.rank-header,.panel-foot,
+.retry-step>p,.retry-bottom,.badge,.country-code,th,.insight-kicker,.insights-source,
+.range-buttons button,.footer,.footer>div,.panel-heading .eyebrow{font-size:12px}
+.insight strong{font-size:20px}.insight p{line-height:1.65}.insight{padding:18px 0}
+.insights-source{line-height:1.6}.hero-grid>.panel{display:flex;flex-direction:column}
+.hero-grid .performance-chart{flex:1;min-height:280px}
+.rank-row{padding:14px 0}.rank-rate strong{min-width:48px}.rank-rate svg{flex-shrink:0}
+.rank-header,.rank-row{grid-template-columns:1.7fr .6fr 1.2fr}.micro-track{width:35px}
+.date-picker-popover summary,.topbar nav a{font-size:14px}
+.footer{font-size:12px}.footer>div{font-size:11px}
+@media(max-width:1150px){.rank-row .micro-track{display:none}.rank-row,.rank-header{grid-template-columns:1.7fr .6fr 1fr}.market{font-size:13px}}
+@media(max-width:600px){.topbar nav a{font-size:12px;padding:9px 10px}.date-picker-popover summary{font-size:12px}.range-buttons button{font-size:12px;padding:5px}.hero-grid .panel-heading{flex-wrap:wrap}.chart-legend{gap:10px}.insight strong{font-size:20px}.insight p{font-size:14px}.rank-row,.rank-header{grid-template-columns:1.7fr .6fr 1fr}.market{font-size:12px}.rank-rate strong{font-size:12px;min-width:43px}.country-code{font-size:10px}.panel-foot{font-size:11px}.retry-bottom{font-size:12px}.metric-foot{font-size:11px}.metric-foot>span:last-child{font-size:10px}.footer{font-size:11px}}

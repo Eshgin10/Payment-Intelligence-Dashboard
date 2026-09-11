@@ -1,0 +1,48 @@
+.site-header,.navigation-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 4%;background:#10110f;min-height:82px}
+.site-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;color:#fff;border-radius:6px}
+.site-logo-mark{position:relative;display:block;width:48px;height:54px;overflow:hidden;flex-shrink:0}
+.site-logo-mark img{position:absolute;width:84px;height:84px;max-width:none;left:-19px;top:-17px;display:block}
+.site-logo-name{font-size:23px;line-height:.88;letter-spacing:-.85px;font-weight:600}
+.menu-toggle{display:grid;place-items:center;width:50px;height:50px;flex-shrink:0;border:1px solid #464a40;border-radius:50%;background:transparent;color:#fff;transition:background .18s,color .18s}
+.menu-toggle:hover{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.site-header :focus-visible,.navigation-header :focus-visible{outline-color:var(--accent)}
+.navigation-overlay{inset:0;margin:0;width:100%;max-width:none;height:100dvh;max-height:none;padding:0;border:0;background:var(--canvas);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+.navigation-overlay::backdrop{background:#10110f}
+.navigation-overlay[open]{display:flex;flex-direction:column}
+.navigation-header{flex-shrink:0}
+.fullscreen-links{display:flex;flex-direction:column;flex:1;padding:32px 4% 40px;min-height:min-content}
+.fullscreen-links a{display:flex;align-items:center;gap:32px;flex:1;min-height:100px;padding:18px 28px;border-bottom:1px solid #d8dbd0;font-size:clamp(32px,4.8vw,72px);font-weight:500;letter-spacing:-.045em;line-height:1.12;transition:background .16s,padding .16s}
+.fullscreen-links a:first-child{border-top:1px solid #d8dbd0}
+.fullscreen-links a:hover,.fullscreen-links a:focus-visible{background:var(--accent);color:var(--ink);padding-left:40px;outline-offset:-4px}
+.fullscreen-links .nav-number{font-size:14px;letter-spacing:0;color:#6b7163;align-self:center;min-width:24px}
+.fullscreen-links a>svg{margin-left:auto;width:40px;height:40px;flex-shrink:0;stroke-width:1.25}
+.fullscreen-links a[aria-current=page] .nav-number{font-weight:700;color:#202020}
+.filter-bar{gap:16px;margin:0 0 32px;align-items:center}
+.filter-bar .select{position:relative;display:block;flex:0 1 auto;min-width:180px}
+.filter-bar .select::after{content:'';position:absolute;right:20px;top:calc(50% - 5px);width:9px;height:9px;border-right:2px solid #59614f;border-bottom:2px solid #59614f;transform:rotate(45deg);pointer-events:none}
+.filter-bar .select select{appearance:none;min-height:58px;width:100%;max-width:none;border-radius:16px;padding:16px 52px 16px 22px;line-height:24px;font-size:16px;background:#fff;border:1px solid #dfe3d8}
+.filter-bar .search-field{min-height:58px;border-radius:16px;padding:16px 20px;gap:12px;max-width:360px}
+.filter-bar .search-field input{font-size:16px;line-height:24px}
+.filter-bar>.text-button{min-height:44px;padding:8px 4px}
+@media(min-width:1450px){.site-header,.navigation-header{padding-left:6%;padding-right:6%}.fullscreen-links{padding-left:6%;padding-right:6%}}
+@media(max-width:900px){.filter-bar .search-field{flex-basis:100%;max-width:none}.filter-bar .select{flex:1 1 180px}}
+@media(max-width:600px){
+ .site-header,.navigation-header{padding:10px 5%;min-height:72px;gap:18px}
+ .site-logo{gap:9px}
+ .site-logo-mark{width:38px;height:44px}
+ .site-logo-mark img{width:68px;height:68px;left:-15px;top:-13px}
+ .site-logo-name{font-size:18px;letter-spacing:-.55px}
+ .menu-toggle{width:44px;height:44px}
+ .menu-toggle svg{width:25px;height:25px}
+ .fullscreen-links{padding:24px 5% 32px}
+ .fullscreen-links a{font-size:clamp(29px,8vw,44px);gap:14px;padding:20px 12px;min-height:90px}
+ .fullscreen-links a:hover,.fullscreen-links a:focus-visible{padding-left:18px}
+ .fullscreen-links .nav-number{font-size:12px;min-width:18px}
+ .fullscreen-links a>svg{width:26px;height:26px}
+ .filter-bar{gap:12px;margin-bottom:24px;display:grid;grid-template-columns:minmax(0,1fr)}
+ .filter-bar .select{min-width:0;width:100%}
+ .filter-bar .select select{min-height:56px;padding:15px 50px 15px 20px}
+ .filter-bar .search-field{width:100%;min-width:0;min-height:56px;padding:15px 20px}
+ .filter-bar>.text-button{justify-self:start}
+}
+@media(prefers-reduced-motion:reduce){.fullscreen-links a,.menu-toggle{transition:none}}

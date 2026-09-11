@@ -1,0 +1,12 @@
+export type Filters={start_date:string;end_date:string;country:string;payment_method:string;customer_segment:string;status:string;search:string;failure_reason:string};
+export type Overview={total_payments:number;pending_payments:number;finalized_payments:number;processed_volume:number;success_rate:number|null;failed_value:number;recovered_value:number;recovered_payments:number;initially_failed:number;refunded_value:number;changes:Record<string,number|null>};
+export type Trend={day:string;processed_volume:number;failed_value:number;payments:number};
+export type Breakdown={key:string;name:string;payments:number;processed_volume:number;failed_value:number;success_rate:number|null};
+export type Retry={attempt_number:number;attempts:number;successes:number;success_rate:number;recovered_value:number};
+export type InsightData={title:string;body:string;tag:string;filter:Partial<Filters>};
+export type Payment={payment_id:string;customer_name:string;country_code:string;amount:number;currency:string;amount_eur:number;payment_method:string;status:string;attempt_count:number;payment_date:string;is_outlier:boolean};
+export type PaymentDetail=Payment & {merchant_name:string;customer_segment:string;risk_level:string;failure_reason:string|null;initial_failure_reason:string|null;settled_at:string|null;attempts:{attempt_number:number;attempt_date:string;status:string;failure_reason:string|null;processor_response:string}[]};
+export type DashboardData={overview:Overview;trends:Trend[];countries:Breakdown[];failures:Breakdown[];retries:Retry[];insights:InsightData[];recent:Payment[]};
+export type PaymentsData={items:Payment[];total:number;page:number;page_size:number};
+export type Options={countries:{key:string;name:string}[];methods:{name:string}[];segments:string[];dates:{start:string;end:string}};
+export type Quality={records_processed:number;duplicates:number;missing_fields:number;invalid_records:number;records_rejected:number;records_accepted:number;outliers:number;corrected_records:number;data_health:number;completed_at:string;checks:{name:string;action:string;affected_records:number}[];database_checks:{name:string;violations:number}[]};

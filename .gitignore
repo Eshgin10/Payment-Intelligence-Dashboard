@@ -1,0 +1,15 @@
+.venv/
+.runtime/
+node_modules/
+.next/
+.next-dev/
+frontend/out/
+__pycache__/
+.pytest_cache/
+.env
+data/raw/*.csv
+data/clean/*.csv
+data/clean/*.json
+frontend/tsconfig.tsbuildinfo
+*.log
+.sites-runtime/

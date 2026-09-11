@@ -1,0 +1,22 @@
+databases:
+  - name: payment-intelligence-db
+    plan: free
+    databaseName: payment_intelligence
+    user: payment
+    ipAllowList: []
+
+services:
+  - type: web
+    name: payment-intelligence
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: commit
+    initialDeployHook: python -m scripts.pipeline --load
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: payment-intelligence-db
+          property: connectionString

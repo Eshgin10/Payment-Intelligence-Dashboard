@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: payment_intelligence
+      POSTGRES_USER: payment
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payment -d payment_intelligence"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+  pipeline:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: ["python", "-m", "scripts.pipeline", "--load"]
+    environment:
+      DATABASE_URL: postgresql://payment:${POSTGRES_PASSWORD}@db:5432/payment_intelligence
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles: ["seed"]
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DATABASE_URL: postgresql://payment:${POSTGRES_PASSWORD}@db:5432/payment_intelligence
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      db:
+        condition: service_healthy
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        API_ORIGIN: http://api:8000
+    environment:
+      API_ORIGIN: http://api:8000
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on: [api]
+volumes:
+  postgres_data:
